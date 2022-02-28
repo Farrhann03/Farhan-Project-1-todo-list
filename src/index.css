@@ -1,15 +1,9 @@
 :root {
-  --clr-primary: rgb(54, 112, 199);
+  --clr-primary: rgb(16, 86, 192);
   --clr-light: #cccc;
+  --clr-medium: rgb(173, 195, 241);
   --clr-dark: black;
   --clr-warning: red;
-}
-
-*,
-*::before,
-*::after {
-  font-family: inherit;
-  box-sizing: border-box;
 }
 
 body {
@@ -29,8 +23,11 @@ body {
 
 .title {
   grid-area: header;
-  text-align: center;
-  font-size: calc(5vw + 1rem);
+  text-align: left;
+  margin-left: 6.4rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  font-size: calc(4vw + 1rem);
   font-weight: 900;
   color: var(--clr-light);
   letter-spacing: 1px;
@@ -45,6 +42,19 @@ body {
   line-height: 1.7;
   list-style: circle;
   padding-left: 1.1em;
+}
+
+.toggle-list {
+  border: 0;
+  background: none;
+  font-size: 35px;
+  color: whitesmoke;
+  cursor: pointer;
+  transition: opacity 100ms ease-in;
+}
+
+.toggle-list:hover {
+  opacity: 0.7;
 }
 
 .list-name {
@@ -80,9 +90,8 @@ form {
 
 .new {
   background: var(--clr-light);
-  border: 0;
+  border: 3px solid var(--clr-primary);
   font-size: inherit;
-  outline: none;
   order: -1;
   padding: 0.25em;
   border-radius: 6px;
@@ -104,6 +113,7 @@ form {
 .new.task {
   margin-bottom: 0.25rem;
   margin-top: 0.5rem;
+  background: whitesmoke;
 }
 
 .active-list {
@@ -115,13 +125,13 @@ form {
   --spacer: 2rem;
 
   grid-area: active;
-  background: var(--clr-light);
+  background: whitesmoke;
   color: var(--clr-dark);
 }
 
 .todo-header {
   padding: var(--spacer);
-  background: #e4e4e4;
+  background: var(--clr-medium);
   display: block;
 }
 
@@ -134,6 +144,7 @@ form {
   margin: 0;
   font-size: 0.8rem;
   margin-left: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .todo-body {
@@ -161,14 +172,16 @@ form {
   position: relative;
   margin-bottom: 1.5em;
   margin-top: 2rem;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 3px solid var(--clr-primary);
+  padding: 0.5rem;
+  background: var(--clr-medium);
 }
 
 .task::after {
   content: "";
   position: absolute;
-  right: 0;
-  left: 0;
-  bottom: -0.5em;
   height: 1px;
   background: currentColor;
   opacity: 0.1;

@@ -98,6 +98,15 @@ function save() {
   localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
 }
 
+function toggleList() {
+  const toggleHideShow = document.getElementById("savedList");
+  if (toggleHideShow.style.display === "none") {
+    toggleHideShow.style.display = "block";
+  } else {
+    toggleHideShow.style.display = "none";
+  }
+}
+
 function render() {
   clearElement(listsContainer);
   renderLists();
